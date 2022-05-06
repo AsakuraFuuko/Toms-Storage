@@ -309,7 +309,7 @@ public class GuiInventoryLink extends HandledScreen<ContainerInventoryLink> impl
 	@Override
 	public boolean keyPressed(int p_keyPressed_1_, int p_keyPressed_2_, int p_keyPressed_3_) {
 		if (p_keyPressed_1_ == 256) {
-			this.close();
+			this.onClose();
 			return true;
 		}
 		return !this.textF.keyPressed(p_keyPressed_1_, p_keyPressed_2_, p_keyPressed_3_) && !this.textF.isActive() ? super.keyPressed(p_keyPressed_1_, p_keyPressed_2_, p_keyPressed_3_) : true;

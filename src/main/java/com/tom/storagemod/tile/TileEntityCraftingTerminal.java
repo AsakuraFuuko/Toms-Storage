@@ -26,6 +26,7 @@ import net.minecraft.util.math.BlockPos;
 import com.tom.storagemod.StorageMod;
 import com.tom.storagemod.StoredItemStack;
 import com.tom.storagemod.gui.ContainerCraftingTerminal;
+import com.tom.storagemod.util.NBTUtil;
 
 public class TileEntityCraftingTerminal extends TileEntityStorageTerminal {
 	private ScreenHandler craftingContainer = new ScreenHandler(ScreenHandlerType.CRAFTING, 0) {
@@ -149,7 +150,7 @@ public class TileEntityCraftingTerminal extends TileEntityStorageTerminal {
 						if(is == null && (getSorting() & (1 << 8)) != 0) {
 							for(int j = 0;j<thePlayer.getInventory().size();j++) {
 								ItemStack st = thePlayer.getInventory().getStack(j);
-								if(ItemStack.areItemsEqual(slot, st) && ItemStack.areNbtEqual(slot, st)) {
+								if(ItemStack.areItemsEqual(slot, st) && NBTUtil.areNbtEqual(slot, st)) {
 									st = thePlayer.getInventory().removeStack(j, 1);
 									if(!st.isEmpty()) {
 										is = new StoredItemStack(st, 1);

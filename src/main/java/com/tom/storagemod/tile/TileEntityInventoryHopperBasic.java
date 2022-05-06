@@ -10,6 +10,7 @@ import com.tom.storagemod.block.BlockInventoryHopperBasic;
 import com.tom.storagemod.util.EmptyHandler;
 import com.tom.storagemod.util.IItemHandler;
 import com.tom.storagemod.util.ItemHandlerHelper;
+import com.tom.storagemod.util.NBTUtil;
 
 public class TileEntityInventoryHopperBasic extends TileEntityInventoryHopperBase {
 	private ItemStack filter = ItemStack.EMPTY;
@@ -33,7 +34,7 @@ public class TileEntityInventoryHopperBasic extends TileEntityInventoryHopperBas
 		if(lastItemSlot != -1 && lastItemSlot < top.getSlots()) {
 			if(hasFilter) {
 				ItemStack inSlot = top.getStackInSlot(lastItemSlot);
-				if(!ItemStack.areItemsEqual(inSlot, getFilter()) || !ItemStack.areNbtEqual(inSlot, getFilter())) {
+				if(!ItemStack.areItemsEqual(inSlot, getFilter()) || !NBTUtil.areNbtEqual(inSlot, getFilter())) {
 					lastItemSlot = -1;
 				}
 			} else {
@@ -47,7 +48,7 @@ public class TileEntityInventoryHopperBasic extends TileEntityInventoryHopperBas
 			for (int i = 0; i < top.getSlots(); i++) {
 				if(hasFilter) {
 					ItemStack inSlot = top.getStackInSlot(i);
-					if(!ItemStack.areItemsEqual(inSlot, getFilter()) || !ItemStack.areNbtEqual(inSlot, getFilter())) {
+					if(!ItemStack.areItemsEqual(inSlot, getFilter()) || !NBTUtil.areNbtEqual(inSlot, getFilter())) {
 						continue;
 					}
 				}

@@ -26,6 +26,7 @@ import com.tom.storagemod.gui.ContainerLevelEmitter;
 import com.tom.storagemod.util.EmptyHandler;
 import com.tom.storagemod.util.IItemHandler;
 import com.tom.storagemod.util.InventoryWrapper;
+import com.tom.storagemod.util.NBTUtil;
 
 public class TileEntityLevelEmitter extends BlockEntity implements TickableServer, NamedScreenHandlerFactory {
 	private ItemStack filter = ItemStack.EMPTY;
@@ -97,7 +98,7 @@ public class TileEntityLevelEmitter extends BlockEntity implements TickableServe
 				int counter = 0;
 				for (int i = 0; i < top.getSlots(); i++) {
 					ItemStack inSlot = top.getStackInSlot(i);
-					if (!ItemStack.areItemsEqual(inSlot, getFilter()) || !ItemStack.areNbtEqual(inSlot, getFilter())) {
+					if (!ItemStack.areItemsEqual(inSlot, getFilter()) || !NBTUtil.areNbtEqual(inSlot, getFilter())) {
 						continue;
 					}
 					counter += inSlot.getCount();

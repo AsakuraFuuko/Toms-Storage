@@ -33,6 +33,7 @@ import com.tom.storagemod.item.WirelessTerminal;
 import com.tom.storagemod.util.IItemHandler;
 import com.tom.storagemod.util.InvWrapper;
 import com.tom.storagemod.util.ItemHandlerHelper;
+import com.tom.storagemod.util.NBTUtil;
 
 public class TileEntityStorageTerminal extends BlockEntity implements NamedScreenHandlerFactory, TickableServer {
 	private IItemHandler itemHandler;
@@ -71,7 +72,7 @@ public class TileEntityStorageTerminal extends BlockEntity implements NamedScree
 		if(itemHandler == null)return null;
 		for (int i = itemHandler.getSlots() - 1; i >= 0; i--) {
 			ItemStack s = itemHandler.getStackInSlot(i);
-			if(ItemStack.areItemsEqual(s, st) && ItemStack.areNbtEqual(s, st)) {
+			if(ItemStack.areItemsEqual(s, st) && NBTUtil.areNbtEqual(s, st)) {
 				ItemStack pulled = itemHandler.extractItem(i, (int) max, false);
 				if(!pulled.isEmpty()) {
 					if(ret == null)ret = new StoredItemStack(pulled);

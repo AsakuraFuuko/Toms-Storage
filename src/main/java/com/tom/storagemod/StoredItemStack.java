@@ -3,6 +3,8 @@ package com.tom.storagemod;
 import java.util.Comparator;
 import java.util.function.Function;
 
+import com.tom.storagemod.util.NBTUtil;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 
@@ -149,7 +151,7 @@ public class StoredItemStack {
 		//if (count != other.count) return false;
 		if (stack == null) {
 			if (other.stack != null) return false;
-		} else if (!ItemStack.areItemsEqual(stack, other.stack) || !ItemStack.areNbtEqual(stack, other.stack)) return false;
+		} else if (!ItemStack.areItemsEqual(stack, other.stack) || !NBTUtil.areNbtEqual(stack, other.stack)) return false;
 		return true;
 	}
 
@@ -159,7 +161,7 @@ public class StoredItemStack {
 		if (count != other.count) return false;
 		if (stack == null) {
 			if (other.stack != null) return false;
-		} else if (!ItemStack.areItemsEqual(stack, other.stack) || !ItemStack.areNbtEqual(stack, other.stack)) return false;
+		} else if (!ItemStack.areItemsEqual(stack, other.stack) || !NBTUtil.areNbtEqual(stack, other.stack)) return false;
 		return true;
 	}
 

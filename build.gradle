@@ -31,16 +31,17 @@ dependencies {
     }
     include "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
 	
-	modImplementation("com.terraformersmc:modmenu:3.0.0") {
+	modImplementation("com.terraformersmc:modmenu:3.0.1") {
         exclude(group: "net.fabricmc.fabric-api")
     }
 	
-	modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:7.0.339"){
+	modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:7.4.456"){
         exclude(group: "net.fabricmc.fabric-api")
     }
-    modRuntime("me.shedaniel:RoughlyEnoughItems-fabric:7.0.339"){
+    modRuntime("me.shedaniel:RoughlyEnoughItems-fabric:7.4.456"){
         exclude(group: "net.fabricmc.fabric-api")
     }
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:7.4.456"
 }
 
 minecraft {
